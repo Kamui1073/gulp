@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ htmlTitle }}</title>
+    <script src="lib/vue.min.js"></script>
+    <script src="lib/moment.min.js"></script>
+    <script src="lib/antd.min.js"></script>
+    <link rel="stylesheet" href="lib/antd.min.css">
+    <style>
+        body{
+            font-family: 'Microsoft YaHei', DengXian, SimSun, 'Segoe UI', Tahoma, Helvetica, sans-serif;
+            background: #f6f6f6;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .setTitle{
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        .titIcon{
+            margin-top: 3px;
+            margin-right: 3px;
+            color: #333;
+        }
+        .content{
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        .ant-card-body {
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id = "app">
+        <!--查询条件 新增-->
+        <a-card :bordered="false" hoverable  :body-style="{marginBottom:'15px'}">
+            <a-row>
+                <a-col class="btnWrap" :sm="24" :md="6">
+                    <a-statistic v-if="isShow" :title="'共有' + tags  + '页面'" :value="Number(number)" :value-style="{ color: '#666' }" style="margin-right: 50px">
+                        <template #prefix>
+                            <a-avatar slot="avatar" :style="{backgroundColor:titleIconColor}" :icon="titleIcon"/>
+                        </template>
+                        <template #suffix>
+                          <span style="font-weight: normal;font-size: 14px">个</span>
+                        </template>
+                    </a-statistic>
+                    <a-statistic v-if="!isShow" :title="'共有' + searchWord  + '页面'" :value="Number(number)" :value-style="{ color: '#666' }" style="margin-right: 50px">
+                        <template #prefix>
+                            <a-avatar slot="avatar" :style="{backgroundColor:titleIconColor}" :icon="titleIcon"/>
+                        </template>
+                        <template #suffix>
+                            <span style="font-weight: normal;font-size: 14px">个</span>
+                        </template>
+                    </a-statistic>
+                </a-col>
+                <a-col :sm="24" :md="8" style="padding-top: 15px;">
+                    <a-input-search placeholder="请输入搜索文本" enter-button @search="onSearch" />
+                </a-col>
+                <a-col :sm="24" :md="4" style="text-align: right;">
+                    <a-button type="primary" style="margin-top: 15px;">使用方法</a-button>
+                </a-col>
+                <a-col :sm="24" :md="6" style="text-align: right;">
+                    <a-radio-group style="margin-top: 15px;" :value="dataTag" @change="handleSizeChange">
+                        <a-radio-button v-for="(item,index) in tagData" :key="index" :value="item">
+                            {{ item }}
+                        </a-radio-button>
+                    </a-radio-group>
+                </a-col>
+            </a-row>
+        </a-card>
+        <!--列表-->
+        <a-card :bordered="false" hoverable style="min-height: 326px;">
+            <template slot="title">
+                <span class="titIcon fl"><a-icon type="slack" /></span>
+                <span content="fl" class="setTitle">{{ htmlTitle }}</span>
+            </template>
+            <a-list item-layout="horizontal" :pagination="pagination" :data-source="dataList">
+                <a-list-item slot="renderItem" slot-scope="item, index">
+                    <a-list-item-meta :description="'分类：' + item.tag">
+                        <a slot="title" :href ="link + item.tit + '.html'" target="_blank"><span v-html="highLight(item.tit)"></span></a>
+                        <a-avatar slot="avatar"
+                                  :style="{backgroundColor: item.tag === '电脑端' ? '#62bbff' : '#fda9a9'}"
+                                  :icon="item.tag === '电脑端' ? 'desktop' : 'mobile'"></a-avatar>
+                    </a-list-item-meta>
+                </a-list-item>
+            </a-list>
+        </a-card>
+    </div>
+    <!--数据文件-->
+    <script src="lib/data.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                //显示关键字或分类
+                isShow:true,
+                //搜索关键字
+                searchWord:'',
+                //项目路径
+                link:'app/',
+                //标题
+                htmlTitle : '文件',
+                //项目数量
+                number:'',
+                //项目分类
+                tags:'',
+                tagData:['全部','电脑端','移动端'],
+                //分类标题图标
+                titleIcon:'slack',
+                //分类标题颜色
+                titleIconColor:'#999999',
+                //总项目列表
+                dataList:[],
+                //默认选中分类
+                dataTag: '',
+                pagination: {
+                    onChange: page => {
+                        console.log(page);
+                    },
+                    pageSize: 6,
+                }
+            },
+            beforeCreate() {
+            },
+            created(){
+
+            },
+            mounted(){
+                this.htmlTitle = _Basic_Title
+                //页面标题
+                document.title = this.htmlTitle;
+                //列表
+                this.number = this.dataList.length;
+                //this.setList(this.kjList,'科技')
+                this.getList()
+            },
+            methods:{
+                onSearch(value){
+                    // 如果标题中包含关键字，插入到列表中
+                    if(value !== ''){
+                        lists.forEach(item => {
+                            if(item.tit.includes(value)){
+                                this.dataList.push(item);
+                            }
+                        })
+                        if(this.dataList.length > 0){
+                            //分类标题图标与颜色
+                            this.titleIcon='hdd';
+                            this.titleIconColor='#999999';
+                            //关闭分类总数显示
+                            this.isShow = false;
+                            //查询关键字
+                            this.searchWord = value;
+                            //列表置空
+                            this.dataList = [];
+                            //打印关键字
+                            console.log(value);
+                        }else {
+                            this.$message.error('请输入文字！');
+                        }
+                    }else {
+                        this.$message.error('请输入文字！');
+                    }
+                    //设置分类总数
+                    this.number = this.dataList.length || 0;
+                },
+                //设置分类菜单方法
+                setTagList(e){
+                    this.dataList = [];
+                    this.pushList(this.dataList,e.target.value);
+                    //分类
+                    this.tags = this.dataTag;
+                    //分类总数
+                    this.number = this.dataList.length || 0;
+                },
+                //分类
+                handleSizeChange(e) {
+                    //显示分类总数
+                    this.isShow = true;
+                    this.dataTag = e.target.value;
+                    switch(e.target.value){
+                        case '全部' :
+                            this.getList()
+                            return
+                        case '电脑端' :
+                            //设置分类菜单
+                            this.setTagList(e);
+                            //分类标题图标与颜色
+                            this.titleIcon='desktop';
+                            this.titleIconColor='#62bbff';
+                            return
+                        case '移动端' :
+                            //设置分类菜单
+                            this.setTagList(e);
+                            //分类标题图标与颜色
+                            this.titleIcon='mobile';
+                            this.titleIconColor='#fda9a9';
+                            return
+                    }
+                },
+                getList(){
+                    this.dataList = [];
+                    //加载全部分类
+                    this.dataList = lists;
+                    this.tags = '';
+                    this.number = this.dataList.length || 0;
+                    //分类标题图标与颜色
+                    //this.titleIcon='slack';
+                    //this.titleIconColor='#62bbff';
+                },
+                //获取分类方法
+                pushList(arr,tag){
+                    lists.forEach(item => {
+                        if(item.tag === tag){
+                            arr.push(item);
+                        }
+                    })
+                },
+                //高亮搜索文字方法
+                highLight(title){
+                    // 如果标题中包含，关键字就替换一下
+                    if(title.includes(this.searchWord)){
+                        title = title.replace(
+                            this.searchWord,
+                            // 这里是替换成html格式的数据，最好再加一个样式权重，保险一点
+                            '<font style="color:red!important;">'+ this.searchWord +'</font>'
+                        )
+                        return title
+                    }
+                    // 不包含的话还用这个
+                    else{
+                        return title
+                    }
+                },
+            }
+        })
+    </script>
+</body>
+</html>
