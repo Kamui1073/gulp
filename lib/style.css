@@ -1,0 +1,44 @@
+body{
+    font-family: 'Microsoft YaHei', DengXian, SimSun, 'Segoe UI', Tahoma, Helvetica, sans-serif;
+    background: #f6f6f6;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.setTitle{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+.titIcon{
+    margin-top: 3px;
+    margin-right: 3px;
+    color: #333;
+}
+.content{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.ant-card-body {
+    padding-top: 10px;
+}
+.examples p strong{
+    color: #ff6060;
+    padding: 0 3px;
+}
+.examples .code{
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+}
+.examples .code span{
+    display: block;
+}
+.examples .code i{
+    font-style: normal;
+}

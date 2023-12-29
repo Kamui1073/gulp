@@ -19,6 +19,7 @@ const SRC_AppCss = 'app/css';                           //默认css 路径
 const SRC_AppSass = 'app/sass/**/*.scss'                //scss文件
 const SRC_Sass = 'sass/**/*.scss'                       //scss文件
 
+const ROOT_Sass = 'sass'                       //scss文件
 const CSS_SRC = 'css';                                 //css文件
 const SRC = 'src';                                      //js 输出路径
 const DEST_JS = 'dist/js/';                             //js 输出路径
@@ -67,6 +68,11 @@ function serve() {
 function cleanDest() {
     console.log('dist已清理...')
     return gulp.src(DEST_HTML,{allowEmpty:true})
+        .pipe(clean())
+}
+function cleanSass() {
+    console.log('Sass已清理...')
+    return gulp.src(ROOT_Sass,{allowEmpty:true})
         .pipe(clean())
 }
 function cleanSrc() {
@@ -137,7 +143,8 @@ exports.ServeScss = gulp.series(scssServe)
 //编译scss
 exports.buildSass = gulp.series(cleanCss,buildScss)
 //清理
-exports.clean = gulp.series(cleanDest,cleanSrc,cleanCss)
+exports.clean = gulp.series(cleanDest,cleanSrc)
+exports.cleanSass = gulp.series(cleanSass,cleanCss)
 //压缩
 exports.build = gulp.series(
     cleanSrc,
