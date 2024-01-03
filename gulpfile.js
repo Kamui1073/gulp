@@ -19,7 +19,7 @@ const SRC_AppCss = 'app/css';                           //默认css 路径
 const SRC_AppSass = 'app/sass/**/*.scss'                //scss文件
 const SRC_Sass = 'sass/**/*.scss'                       //scss文件
 
-const ROOT_Sass = 'sass'                       //scss文件
+const ROOT_Sass = 'sass'                               //scss文件
 const CSS_SRC = 'css';                                 //css文件
 const SRC = 'src';                                      //js 输出路径
 const DEST_JS = 'dist/js/';                             //js 输出路径

@@ -1,6 +1,6 @@
 # gulp v1.0
 ###### Gulp前端构建工具
-by Kamui
+Created by Kamui on 2023/12/27.
 
 ## Install
 
@@ -15,6 +15,14 @@ by Kamui
 
 ### 安装依赖
     npm install
+
+### 功能
+1、自动监听 App 文件夹下 html，css，js 与图片修改后自动刷新页面 运行 [serve]  
+2、可选 sass 预处理器实时编译为css 运行 [ServeSass]  
+3、自动打包 App 文件夹下代码到 src 文件夹生成 zip 文件；dist 文件夹为未压缩静态文件 运行 [build]  
+4、编译 Sass 文件直接放入根目录 sass 文件夹内运行 [buildSass] 会生成css文件到根目录 css 下  
+5、清除根目录 sass 与 css 文件夹与内容运行 [cleanSass]
+6、清除 src 与 dist 文件夹运行 [clean]
 
 ### 结构
 
@@ -45,6 +53,8 @@ by Kamui
 
     buildScssStyles
 
+页面文件放入App中按照App目录结构
+
 ### 开发历史
 
 [![node-image]][node-url]
@@ -61,7 +71,12 @@ by Kamui
 
 **1.0.0  2023.12.27**
 
--1.1版本
+-1.01版本
 1、修正SASS编译与清理
 2、增加索引页说明
 3、更新README
+
+**1.0.0  2024.1.2**
+
+-1.02版本
+1、修改并完善索引页，修改说明页
