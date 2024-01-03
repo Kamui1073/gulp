@@ -69,14 +69,10 @@ Created by Kamui on 2023/12/27.
 [node-image]: https://img.shields.io/badge/Node.js-V14.18.1-2BAF2B.svg?style=flat-square
 [node-url]: http://nodejs.org/
 
-**1.0.0  2023.12.27**
+**1.0.1  ［2023.12.27］**  
+1、修正SASS编译与清理  
+2、增加索引页说明  
+3、更新README  
 
--1.01版本
-1、修正SASS编译与清理
-2、增加索引页说明
-3、更新README
-
-**1.0.0  2024.1.2**
-
--1.02版本
-1、修改并完善索引页，修改说明页
+**1.0.2  ［2024.1.2］**  
+1、修改并完善索引页，修改说明页  
