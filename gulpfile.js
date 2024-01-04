@@ -34,6 +34,7 @@ async function scssServe() {
         },
         files: [
             './lib/data.js',
+            './lib/main.js',
             './index.html',
             'app/css/*.css',
             'app/image/**/**',
@@ -53,6 +54,7 @@ function serve() {
         },
         files: [
             './lib/data.js',
+            './lib/main.js',
             './index.html',
             'app/css/*.css',
             'app/image/**/**',

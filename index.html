@@ -15,7 +15,7 @@
         <!--查询条件 新增-->
         <a-card :bordered="false" hoverable  :body-style="{marginBottom:'15px'}">
             <a-row>
-                <a-col class="btnWrap" :sm="24" :md="6">
+                <a-col class="btnWrap" :sm="24" :md="4">
                     <a-statistic v-if="isShow" :title="'共有' + tags  + '页面'" :value="Number(number)" :value-style="{ color: '#666' }" style="margin-right: 50px">
                         <template #prefix>
                             <a-avatar slot="avatar" :style="{backgroundColor:titleIconColor}" :icon="titleIcon"/>
@@ -34,10 +34,11 @@
                     </a-statistic>
                 </a-col>
                 <a-col :sm="24" :md="8" style="padding-top: 15px;">
-                    <a-input-search placeholder="请输入搜索文本" enter-button @search="onSearch" />
+                    <a-input-search placeholder="请输入搜索文本" v-model="searchValue" enter-button @search="onSearch" />
                 </a-col>
-                <a-col :sm="24" :md="4" style="text-align: right;">
-                    <a-button type="primary" @click="visible = true" style="margin-top: 15px;">使用方法</a-button>
+                <a-col :sm="24" :md="6" class="clearfix">
+                    <a-button  @click="resetSearch" icon="sync" style="margin-top: 15px;float: left;margin-left: 10px;">重置</a-button>
+                    <a-button type="danger" @click="visible = true" icon="info-circle" style="margin-top: 15px; float: right;">使用方法</a-button>
                 </a-col>
                 <a-col :sm="24" :md="6" style="text-align: right;">
                     <a-radio-group style="margin-top: 15px;" :value="dataTag" @change="handleSizeChange">
