@@ -231,4 +231,43 @@ th {
   font-weight: bold;
   padding: 20px;
 }
+.setFont span {
+  display: block;
+}
+.setFont span:nth-child(1) {
+  font-size: 20px;
+  color: rgba(65, 234, 233, 0.8);
+}
+.setFont span:nth-child(2) {
+  font-size: 30px;
+  color: rgba(232, 146, 5, 0.8);
+}
+.setFont span:nth-child(3) {
+  font-size: 40px;
+  color: rgba(70, 182, 50, 0.8);
+}
+.setFont span:nth-child(4) {
+  font-size: 50px;
+  color: rgba(248, 231, 210, 0.8);
+}
+.setFont span:nth-child(5) {
+  font-size: 60px;
+  color: rgba(71, 87, 111, 0.8);
+}
+.setFont span:nth-child(6) {
+  font-size: 70px;
+  color: rgba(81, 249, 58, 0.8);
+}
+.setFont span:nth-child(7) {
+  font-size: 80px;
+  color: rgba(224, 42, 87, 0.8);
+}
+.setFont span:nth-child(8) {
+  font-size: 90px;
+  color: rgba(123, 177, 42, 0.8);
+}
+.setFont span:nth-child(9) {
+  font-size: 100px;
+  color: rgba(216, 43, 152, 0.8);
+}
 /*# sourceMappingURL=style.css.map */

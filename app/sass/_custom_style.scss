@@ -2,4 +2,13 @@
   font-size: 20px;
   font-weight: bold;
   padding: 20px;
+  span{
+    display: block;
+    @for $i from 1 through 9{
+      &:nth-child(#{$i}){
+        font-size: ($i + 1) * 10 + px;
+        color: rgba(random(255),random(255),random(255),.8);
+      }
+    }
+  }
 }
