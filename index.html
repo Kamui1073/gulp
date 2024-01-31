@@ -9,6 +9,8 @@
     <script src="lib/antd.min.js"></script>
     <link rel="stylesheet" href="lib/antd.min.css">
     <link rel="stylesheet" href="lib/style.css">
+    <!-- 图标 -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     <div class="content" id = "app">
@@ -16,17 +18,17 @@
         <a-card :bordered="false" hoverable  :body-style="{marginBottom:'15px'}">
             <a-row>
                 <a-col class="btnWrap" :sm="24" :md="4">
-                    <a-statistic v-if="isShow" :title="'共有' + tags  + '页面'" :value="Number(number)" :value-style="{ color: '#666' }" style="margin-right: 50px">
+                    <a-statistic v-if="data.isShow" :title="'共有' + data.tags  + '页面'" :value="data.number" :value-style="{ color: '#666' }" style="margin-right: 50px">
                         <template #prefix>
-                            <a-avatar slot="avatar" :style="{backgroundColor:titleIconColor}" :icon="titleIcon"/>
+                            <a-avatar slot="avatar" :style="{backgroundColor:data.titleIconColor}"><i :class="'fa fa-' + data.titleIcon"></i></a-avatar>
                         </template>
                         <template #suffix>
                           <span style="font-weight: normal;font-size: 14px">个</span>
                         </template>
                     </a-statistic>
-                    <a-statistic v-if="!isShow" :title="'共有' + searchWord  + '页面'" :value="Number(number)" :value-style="{ color: '#666' }" style="margin-right: 50px">
+                    <a-statistic v-if="!data.isShow" :title="'共有' + data.searchWord  + '页面'" :value="data.number" :value-style="{ color: '#666' }" style="margin-right: 50px">
                         <template #prefix>
-                            <a-avatar slot="avatar" :style="{backgroundColor:titleIconColor}" :icon="titleIcon"/>
+                            <a-avatar slot="avatar" :style="{backgroundColor:data.titleIconColor}"><i :class="'fa fa-' + data.titleIcon"></i></a-avatar>
                         </template>
                         <template #suffix>
                             <span style="font-weight: normal;font-size: 14px">个</span>
@@ -34,15 +36,16 @@
                     </a-statistic>
                 </a-col>
                 <a-col :sm="24" :md="8" style="padding-top: 15px;">
-                    <a-input-search placeholder="请输入搜索文本" v-model="searchValue" enter-button @search="onSearch" />
+                    <a-input-search placeholder="请输入搜索文本" v-model:value="data.searchValue" enter-button @search="onSearch" />
                 </a-col>
                 <a-col :sm="24" :md="6" class="clearfix">
-                    <a-button  @click="resetSearch" icon="sync" style="margin-top: 15px;float: left;margin-left: 10px;">重置</a-button>
-                    <a-button type="danger" @click="visible = true" icon="info-circle" style="margin-top: 15px; float: right;">使用方法</a-button>
+                    <a-button  @click="resetSearch" style="margin-top: 15px;float: left;margin-left: 10px;"><i class="fa fa-refresh"></i>重置</a-button>
+                    <a-button type="danger" @click="data.visible = true" style="margin-top: 15px; float: right;"><i class="fa fa-question-circle"></i>使用方法</a-button>
+                    <a-button @click="openJs"></a-button>
                 </a-col>
                 <a-col :sm="24" :md="6" style="text-align: right;">
-                    <a-radio-group style="margin-top: 15px;" :value="dataTag" @change="handleSizeChange">
-                        <a-radio-button v-for="(item,index) in tagData" :key="index" :value="item">
+                    <a-radio-group style="margin-top: 15px;" :value="data.dataTag" @change="handleSizeChange">
+                        <a-radio-button v-for="(item,index) in data.tagData" :key="index" :value="item">
                             {{ item }}
                         </a-radio-button>
                     </a-radio-group>
@@ -51,23 +54,24 @@
         </a-card>
         <!--列表-->
         <a-card :bordered="false" hoverable style="min-height: 326px;">
-            <template slot="title">
+            <template #title>
                 <span class="titIcon fl"><a-icon type="slack" /></span>
-                <span content="fl" class="setTitle">{{ htmlTitle }}</span>
+                <span content="fl" class="setTitle">{{ data.htmlTitle }}</span>
             </template>
-            <a-list item-layout="horizontal" :pagination="pagination" :data-source="dataList">
-                <a-list-item slot="renderItem" slot-scope="item, index">
-                    <a-list-item-meta :description="'分类：' + item.tag">
-                        <a slot="title" :href ="link + item.tit + '.html'" target="_blank"><span v-html="highLight(item.tit)"></span></a>
-                        <a-avatar slot="avatar"
-                                  :style="{backgroundColor: item.tag === '电脑端' ? '#62bbff' : '#fda9a9'}"
-                                  :icon="item.tag === '电脑端' ? 'desktop' : 'mobile'"></a-avatar>
-                    </a-list-item-meta>
-                </a-list-item>
-            </a-list>
+            <a-table :data-source="data.dataSource" :columns="data.columns" :pagination="data.pagination">
+                <template #tag="{ text }">
+                      <span>
+                          <a-tag :color="text === '电脑端' ? 'volcano' : 'green'">{{ text }}</a-tag>
+                      </span>
+                </template>
+                <template #name="{ text }">
+                    <a class="tableLink" :href ="data.link + text + '.html'" target="_blank" v-html="highLight(String(text))"></a>
+                </template>
+            </a-table>
         </a-card>
-        <a-modal v-model="visible" class="examples" width="600px" title="使用方法" :footer="null"  @ok="hideModal">
-            <div v-html="htmlData"></div>
+        <!-- 说明弹窗 -->
+        <a-modal v-model:visible="data.visible" class="examples" width="600px" title="使用方法" :footer="null"  @ok="hideModal">
+            <div v-html="data.htmlData"></div>
         </a-modal>
     </div>
     <!--数据文件-->

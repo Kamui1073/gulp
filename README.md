@@ -9,9 +9,13 @@ Created by Kamui on 2023/12/27.
     https://nodejs.org/en/
     https://nodejs.org/dist/v14.18.1/
     
-### 安装淘宝镜像
+### 安装阿里npm镜像
 
-    npm install --registry=https://registry.npmmirror.com
+    npm config set registry https://registry.npmmirror.com
+
+### 查看npm源
+
+    npm get registry
 
 ### 安装依赖
     npm install
@@ -35,6 +39,7 @@ Created by Kamui on 2023/12/27.
     |─src                  //bulid后ZIP压缩包输出地址
     |─dist                 //bulid后静态文件输出地址
     |─lib                  //索引页面依赖文件
+    |  ├─font-awesome      //图标库文件
     |  ├─antd.min.css      //Antd Vue依赖
     |  ├─antd.min.js       //Antd Vue依赖
     |  ├─data.js           //索引文件数据存放JS
@@ -88,3 +93,9 @@ Created by Kamui on 2023/12/27.
 **1.0.4  ［2024.1.11］**  
 1、示例弹窗修改
 2、增加icon图标
+3、vue2最终版
+
+**2.0.0  ［2024.1.31］**  
+1、索引页升级到 vue 3.4.15 与 Antd 2.2.8
+2、添加 font-awesome 图标库
+3、示例页修改

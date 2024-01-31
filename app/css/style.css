@@ -236,38 +236,38 @@ th {
 }
 .setFont span:nth-child(1) {
   font-size: 20px;
-  color: rgba(65, 234, 233, 0.8);
+  color: rgba(239, 34, 150, 0.8);
 }
 .setFont span:nth-child(2) {
   font-size: 30px;
-  color: rgba(232, 146, 5, 0.8);
+  color: rgba(131, 22, 152, 0.8);
 }
 .setFont span:nth-child(3) {
   font-size: 40px;
-  color: rgba(70, 182, 50, 0.8);
+  color: rgba(9, 90, 192, 0.8);
 }
 .setFont span:nth-child(4) {
   font-size: 50px;
-  color: rgba(248, 231, 210, 0.8);
+  color: rgba(164, 150, 7, 0.8);
 }
 .setFont span:nth-child(5) {
   font-size: 60px;
-  color: rgba(71, 87, 111, 0.8);
+  color: rgba(234, 196, 222, 0.8);
 }
 .setFont span:nth-child(6) {
   font-size: 70px;
-  color: rgba(81, 249, 58, 0.8);
+  color: rgba(100, 104, 195, 0.8);
 }
 .setFont span:nth-child(7) {
   font-size: 80px;
-  color: rgba(224, 42, 87, 0.8);
+  color: rgba(166, 146, 37, 0.8);
 }
 .setFont span:nth-child(8) {
   font-size: 90px;
-  color: rgba(123, 177, 42, 0.8);
+  color: rgba(140, 15, 107, 0.8);
 }
 .setFont span:nth-child(9) {
   font-size: 100px;
-  color: rgba(216, 43, 152, 0.8);
+  color: rgba(91, 241, 141, 0.8);
 }
 /*# sourceMappingURL=style.css.map */
