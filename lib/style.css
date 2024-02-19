@@ -49,3 +49,25 @@ body{
     margin-right: 6px;
     opacity: .9;
 }
+.ant-table-thead>tr>th {
+    background: #f3faff;
+    border-bottom: 1px solid #f0f0f0;
+    color: rgba(0,0,0,.85);
+    font-weight: 500;
+    text-align: left;
+    transition: background .3s ease;
+}
+.ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,.ant-table-tbody>tr.ant-table-row-selected>td.ant-table-column-sort,.ant-table-tbody>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,.ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,.ant-table-thead>tr.ant-table-row-selected>td.ant-table-column-sort,.ant-table-thead>tr:hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td {
+    background: transparent;
+}
+.ant-table-tbody>tr:hover{
+    background: #f9f9f9;
+    box-shadow: 0 0 6px rgba(0,0,0,.06);
+}
+.ant-table-tbody>tr:hover.ant-table-row-selected>td,.ant-table-thead>tr:hover.ant-table-row-selected>td {
+    background: #dcf4ff
+}
+
+.ant-table-tbody>tr:hover.ant-table-row-selected>td.ant-table-column-sort,.ant-table-thead>tr:hover.ant-table-row-selected>td.ant-table-column-sort {
+    background: #e6f7ff
+}
