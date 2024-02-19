@@ -14,9 +14,10 @@ body{
     color: #333;
 }
 .titIcon{
-    margin-top: 3px;
-    margin-right: 3px;
-    color: #333;
+    margin-top: 0;
+    color: rgba(0, 0, 0, 0.6);
+    margin-right: 6px;
+    font-size: 20px;
 }
 .content{
     width: 80%;
