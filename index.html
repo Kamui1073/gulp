@@ -41,7 +41,6 @@
                 <a-col :sm="24" :md="6" class="clearfix">
                     <a-button  @click="resetSearch" style="margin-top: 15px;float: left;margin-left: 10px;"><i class="fa fa-refresh"></i>重置</a-button>
                     <a-button type="danger" @click="data.visible = true" style="margin-top: 15px; float: right;"><i class="fa fa-question-circle"></i>使用方法</a-button>
-                    <a-button @click="openJs"></a-button>
                 </a-col>
                 <a-col :sm="24" :md="6" style="text-align: right;">
                     <a-radio-group style="margin-top: 15px;" :value="data.dataTag" @change="handleSizeChange">
@@ -58,7 +57,7 @@
                 <span class="titIcon fl"><i class="fa fa-book"></i></span>
                 <span content="fl" class="setTitle">{{ data.htmlTitle }}</span>
             </template>
-            <a-table :data-source="data.dataSource" :columns="data.columns" :pagination="data.pagination">
+            <a-table :data-source="data.dataSource" :columns="data.columns" :pagination="data.pagination" :locale="{emptyText: '暂无数据'}">
                 <template #tag="{ text }">
                       <span>
                           <a-tag :color="text === '电脑端' ? 'volcano' : 'green'">{{ text }}</a-tag>
