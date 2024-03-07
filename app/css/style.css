@@ -226,6 +226,10 @@ th {
   padding: 0;
 }
 
+body {
+  background: #000;
+}
+
 .setFont {
   font-size: 20px;
   font-weight: bold;
@@ -236,38 +240,38 @@ th {
 }
 .setFont span:nth-child(1) {
   font-size: 20px;
-  color: rgba(239, 34, 150, 0.8);
+  color: rgba(185, 44, 94, 0.8);
 }
 .setFont span:nth-child(2) {
   font-size: 30px;
-  color: rgba(131, 22, 152, 0.8);
+  color: rgba(240, 110, 48, 0.8);
 }
 .setFont span:nth-child(3) {
   font-size: 40px;
-  color: rgba(9, 90, 192, 0.8);
+  color: rgba(71, 6, 241, 0.8);
 }
 .setFont span:nth-child(4) {
   font-size: 50px;
-  color: rgba(164, 150, 7, 0.8);
+  color: rgba(137, 91, 65, 0.8);
 }
 .setFont span:nth-child(5) {
   font-size: 60px;
-  color: rgba(234, 196, 222, 0.8);
+  color: rgba(225, 58, 205, 0.8);
 }
 .setFont span:nth-child(6) {
   font-size: 70px;
-  color: rgba(100, 104, 195, 0.8);
+  color: rgba(68, 34, 241, 0.8);
 }
 .setFont span:nth-child(7) {
   font-size: 80px;
-  color: rgba(166, 146, 37, 0.8);
+  color: rgba(162, 52, 70, 0.8);
 }
 .setFont span:nth-child(8) {
   font-size: 90px;
-  color: rgba(140, 15, 107, 0.8);
+  color: rgba(66, 169, 92, 0.8);
 }
 .setFont span:nth-child(9) {
   font-size: 100px;
-  color: rgba(91, 241, 141, 0.8);
+  color: rgba(144, 101, 162, 0.8);
 }
 /*# sourceMappingURL=style.css.map */
