@@ -20,8 +20,10 @@ body{
     font-size: 20px;
 }
 .content{
+    position: relative;
     width: 80%;
-    margin: 0 auto;
+    top: 50%;
+    margin: -350px auto 0 auto;
     padding: 20px 0;
 }
 .ant-card-body {
