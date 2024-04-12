@@ -240,38 +240,38 @@ body {
 }
 .setFont span:nth-child(1) {
   font-size: 20px;
-  color: rgba(185, 44, 94, 0.8);
+  color: rgba(236, 105, 92, 0.8);
 }
 .setFont span:nth-child(2) {
   font-size: 30px;
-  color: rgba(240, 110, 48, 0.8);
+  color: rgba(145, 49, 222, 0.8);
 }
 .setFont span:nth-child(3) {
   font-size: 40px;
-  color: rgba(71, 6, 241, 0.8);
+  color: rgba(237, 149, 240, 0.8);
 }
 .setFont span:nth-child(4) {
   font-size: 50px;
-  color: rgba(137, 91, 65, 0.8);
+  color: rgba(58, 28, 174, 0.8);
 }
 .setFont span:nth-child(5) {
   font-size: 60px;
-  color: rgba(225, 58, 205, 0.8);
+  color: rgba(211, 108, 186, 0.8);
 }
 .setFont span:nth-child(6) {
   font-size: 70px;
-  color: rgba(68, 34, 241, 0.8);
+  color: rgba(122, 83, 34, 0.8);
 }
 .setFont span:nth-child(7) {
   font-size: 80px;
-  color: rgba(162, 52, 70, 0.8);
+  color: rgba(122, 205, 217, 0.8);
 }
 .setFont span:nth-child(8) {
   font-size: 90px;
-  color: rgba(66, 169, 92, 0.8);
+  color: rgba(35, 67, 229, 0.8);
 }
 .setFont span:nth-child(9) {
   font-size: 100px;
-  color: rgba(144, 101, 162, 0.8);
+  color: rgba(250, 198, 170, 0.8);
 }
 /*# sourceMappingURL=style.css.map */
