@@ -19,7 +19,7 @@
         <a-card :bordered="false" hoverable  :body-style="{marginBottom:'15px'}">
             <a-row>
                 <a-col class="btnWrap" :sm="24" :md="4">
-                    <a-statistic v-if="data.isShow" :title="'共有' + data.tags  + '页面'" :value="data.number" :value-style="{ color: '#666' }" style="margin-right: 50px">
+                    <a-statistic v-if="data.isShow" :title="'共有' + data.tags  + '页面'" :value="data.number" :value-style="{ color: '#ccc' }" style="margin-right: 50px">
                         <template #prefix>
                             <a-avatar slot="avatar" :style="{backgroundColor:data.titleIconColor}"><i :class="'fa fa-' + data.titleIcon"></i></a-avatar>
                         </template>
