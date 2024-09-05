@@ -27,7 +27,7 @@ body{
     padding: 20px 0;
 }
 .ant-card-body {
-    padding-top: 10px;
+/*    padding-top: 10px;*/
 }
 .examples p strong{
     color: #ff6060;
@@ -60,4 +60,24 @@ body{
     left: 0;
     z-index: -1;
     opacity: 1;
+}
+.icon{
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+    margin-right:16px;
+    cursor: pointer;
+    svg{
+        width: 18px;
+        height: 18px;
+        fill: #fff;
+    }
 }

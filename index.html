@@ -8,13 +8,18 @@
     <script src="lib/moment.min.js"></script>
     <script src="lib/antd.min.js"></script>
     <link rel="stylesheet" href="lib/antd.min.css">
-    <link rel="stylesheet" href="lib/antd.dark.css">
+    <link id="dark" rel="stylesheet" href="lib/antd.dark.css">
     <link rel="stylesheet" href="lib/style.css">
     <!-- 图标 -->
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     <div class="content" id = "app">
+        <!--主题切换-->
+        <span class="icon" :title="data.isDark ? '开灯' : '关灯'" @click="setTheme">
+            <svg v-if="data.isDark"  t="1725248368445" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6776"><path d="M450.6 64.9h125.6v125.6H450.6zM150.065 239.09l88.81-88.81 88.812 88.81-88.811 88.812zM60.9 449.2h125.6v125.6H60.9zM146.305 786.482l88.811-88.811 88.811 88.81-88.811 88.812zM445.2 838.9h125.6v125.6H445.2zM693.696 790.241l88.81-88.81 88.812 88.81-88.811 88.811zM834.9 454.6h125.6v125.6H834.9zM697.385 242.921l88.81-88.81 88.812 88.81-88.811 88.811zM513 261c-139.9 0-253.2 113.4-253.2 253.2S373.1 767.5 513 767.5s253.2-113.4 253.2-253.2S652.9 261 513 261z" p-id="6777"></path></svg>
+            <svg v-else t="1725502425970" style="fill: #333" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4365"><path d="M618.496 111.616c9.216 34.304 14.336 70.656 14.336 108.032 0 228.352-184.832 413.184-413.184 413.184-37.376 0-73.728-5.12-108.544-14.336 47.616 175.616 207.872 305.152 398.848 305.152 228.352 0 413.184-184.832 413.184-413.184 0-190.976-129.024-351.232-304.64-398.848z" p-id="4366"></path></svg>
+        </span>
         <!--查询条件-->
         <a-card :bordered="false" hoverable  :body-style="{marginBottom:'15px'}">
             <a-row>

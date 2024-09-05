@@ -74,6 +74,13 @@ Created by Kamui on 2023/12/27.
 [node-image]: https://img.shields.io/badge/Node.js-V14.18.1-2BAF2B.svg?style=flat-square
 [node-url]: http://nodejs.org/
 
+## 1.0.3
+`2024.9.5`
+### 💎 功能优化
+- 增加切换主题功能
+### 🐛 问题修复
+- 样式优化
+
 ## 1.0.2
 `2024.3.7`
 ### 💎 功能优化
