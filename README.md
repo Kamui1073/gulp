@@ -74,6 +74,11 @@ Created by Kamui on 2023/12/27.
 [node-image]: https://img.shields.io/badge/Node.js-V14.18.1-2BAF2B.svg?style=flat-square
 [node-url]: http://nodejs.org/
 
+## 1.0.4
+`2024.9.11`
+### 🐛 问题修复
+- 修正切换后（包括搜索）页码未回到第一页问题
+
 ## 1.0.3
 `2024.9.5`
 ### 💎 功能优化
