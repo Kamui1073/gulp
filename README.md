@@ -56,7 +56,7 @@ Created by Kamui on 2023/12/27.
 
 单独编译scss文件将文件放到scss运行：buildSass会编译合并到css目录
 
-    buildScssStyles
+    buildSass
 
 页面文件放入App中按照App目录结构
 
