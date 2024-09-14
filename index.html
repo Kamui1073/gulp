@@ -50,8 +50,8 @@
                 </a-col>
                 <a-col :sm="24" :md="6" style="text-align: right;">
                     <a-radio-group style="margin-top: 15px;" :value="data.dataTag" @change="handleSizeChange">
-                        <a-radio-button v-for="(item,index) in data.tagData" :key="index" :value="item">
-                            {{ item }}
+                        <a-radio-button v-for="(item,index) in data.tagData" :key="index" :value="item.name">
+                            {{ item.name }}
                         </a-radio-button>
                     </a-radio-group>
                 </a-col>
