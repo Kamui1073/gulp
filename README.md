@@ -46,6 +46,7 @@ Created by Kamui on 2023/12/27.
     |  ├─main.js           //索引页JS
     |  ├─moment.min.js     //Antd Vue依赖
     |  ├─vue.min.js        //Vue
+    |  ├─animate.js        //背景动画依赖
     |  ├─style.css         //索引页自定义样式
     |─sass           //单独编译sass存放位置
     |─css            //单独编译sass输出css位置
